@@ -35,25 +35,29 @@ public class Main {
 			if (monster.hp <= 0) {
 				System.out.println(monster.name + "は倒れた。");
 				monsters.remove(monster);
+
 			}
+
 			if (monsters.isEmpty()) {
 				System.out.println("勇者たちは勝利した！");
 				break;
+
 			}
 
 			System.out.println("モンスターのターン！");
+			human = humans.get(Rand.get(humans.size()));
+			monster = monsters.get(Rand.get(monsters.size()));
 
 			monster.attack(human);
 
 			if (human.hp <= 0) {
 				System.out.println(human.name + "は倒れた。");
 				humans.remove(human);
+			}
 
-				if (monsters.isEmpty()) {
-					System.out.println("モンスターたちは勝利した!");
-					break;
-				}
-
+			if (humans.isEmpty()) {
+				System.out.println("モンスターたちは勝利した!");
+				break;
 			}
 
 		}
